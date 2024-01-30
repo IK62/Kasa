@@ -9,31 +9,30 @@ const browserRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <App>
+        <ErrorPage />
+      </App>
+    ),
     children: [
       {
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            index: true,
-            element: <Home />,
-          },
-          {
-            path: 'Fiche-Logement/:id',
-            element: <Logement />,
-          },
-          {
-            path: 'A-Propos',
-            element: <Propos />,
-          },
-        ],
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: 'Fiche-Logement/:id',
+        element: <Logement />,
+      },
+      {
+        path: 'A-Propos',
+        element: <Propos />,
       },
     ],
   },
 ])
 
 function Router() {
-    return (<RouterProvider router={browserRouter}/>)
+  return <RouterProvider router={browserRouter} />
 }
 
-export default Router;
+export default Router

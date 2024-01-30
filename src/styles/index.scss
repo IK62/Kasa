@@ -1,0 +1,334 @@
+$paddingHeader: 100px;
+
+@mixin centerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin collapse($width, $height) {
+  .collapseInfo {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0 50px 0;
+
+    .collapseDiv {
+      display: grid;
+      position: relative;
+      width: $width;
+      min-height: $height;
+      height: min-content;
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 0;
+      background-color: #f6f6f6;
+
+      .collapseOutside {
+        border-radius: 10px;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ff6060;
+        padding: 10px 20px 10px 10px;
+        width: $width;
+        height: $height;
+        box-sizing: border-box;
+        z-index: 2;
+
+        .collapseTitle {
+          font-size: 1.125rem;
+          color: white;
+          margin: unset;
+        }
+
+        .collapseArrow {
+          width: 32px;
+          transition: all linear 0.5s;
+          cursor: pointer;
+        }
+
+        .isArrowOpen {
+          rotate: 180deg;
+        }
+      }
+
+      .collapseInside {
+        display: grid;
+        grid-template-rows: 0fr;
+        position: relative;
+        box-sizing: border-box;
+        z-index: 1;
+        padding: 0 20px 0 20px;
+        transition: all linear 0.5s;
+
+        .collapseContent {
+          margin: unset;
+          display: flex;
+          flex-direction: column;
+          color: #ff6060;
+          font-size: 1.125rem;
+          overflow: hidden;
+        }
+      }
+      
+      .isCollapseOpen {
+        padding: 20px;
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+h1 {
+  all: unset;
+}
+
+h2 {
+  all: unset;
+}
+
+ul {
+  all: unset;
+}
+
+li {
+  all: unset;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-size: 1.5rem;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  @include centerContent;
+
+  justify-content: space-between;
+  padding: 45px 0 50px 0;
+  max-width: 1240px;
+  margin: 0 auto 0 auto;
+
+  div {
+    @include centerContent;
+    gap: 60px;
+
+    h2 {
+      color: #ff6060;
+      cursor: pointer;
+    }
+
+    .underline {
+      text-decoration-line: underline;
+    }
+  }
+}
+
+main {
+  max-width: 1240px;
+  margin: 0 auto 0 auto;
+
+  .topBanner {
+    @include centerContent;
+
+    height: 223px;
+    border-radius: 25px;
+    color: white;
+    font-size: 3rem;
+    background: url(../images/ProposTopBannerImage.jpg),
+      lightgray 50% / cover no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+    margin-bottom: 40px;
+  }
+
+  .isTitle {
+    background: url(../images/HomeTopBannerImage.jpg),
+      lightgray 50% / cover no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+  }
+
+  .locationGallery {
+    border-radius: 25px;
+    background: #f6f6f6;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px 60px;
+
+    li {
+      all: unset;
+      position: relative;
+      display: block;
+      width: 340px;
+      height: 340px;
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 0;
+      cursor: pointer;
+
+      &:after {
+        z-index: 0;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+      }
+
+      img {
+        z-index: 1;
+        height: inherit;
+      }
+
+      p {
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+        color: white;
+        margin: 0 20px 20px 20px;
+        font-size: 1.125rem;
+      }
+    }
+  }
+
+  .galleryCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 415px;
+    overflow: hidden;
+    margin-bottom: 30px;
+
+    .leftArrow,
+    .rightArrow {
+      position: absolute;
+      height: 79px;
+      cursor: pointer;
+    }
+
+    .rightArrow {
+      right: 23px;
+    }
+
+    .leftArrow {
+      left: 23px;
+    }
+
+    .galleryImage {
+      min-width: 100%;
+    }
+  }
+
+  .infoSection {
+    display: flex;
+    justify-content: space-between;
+
+    .titleDiv {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+
+      h1,
+      h2 {
+        color: #ff6060;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.125rem;
+      }
+
+      ul {
+        display: flex;
+        color: white;
+        gap: 10px;
+
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #ff6060;
+          border-radius: 10px;
+          font-size: 0.875rem;
+          min-width: 115px;
+          height: 25px;
+          padding: 0 30px;
+          box-sizing: border-box;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .ownerDiv {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .ownerInfo {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          width: min-content;
+          text-align: right;
+          color: red;
+          margin: 0;
+          font-size: 1.125rem;
+        }
+
+        img {
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+        }
+      }
+
+      ul {
+        display: flex;
+        gap: 10px;
+
+        li {
+          width: 30px;
+        }
+      }
+    }
+  }
+
+  @include collapse(582px, 52px);
+}
+
+footer {
+  @include centerContent;
+
+  flex-direction: column;
+  background-color: black;
+  gap: 30px;
+  padding: 66px 0 29px;
+
+  h2 {
+    color: white;
+    margin: 0;
+  }
+}

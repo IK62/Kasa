@@ -1,5 +1,9 @@
+import TopBanner from "./topBanner"
+
 function Propos() {
-  return <h1>A propos</h1>
+  return (
+  <TopBanner />
+  )
 }
 
 export default Propos

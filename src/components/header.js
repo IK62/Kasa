@@ -1,7 +1,25 @@
+import { useLocation, useNavigate } from 'react-router-dom'
+import { ReactComponent as Logo } from '../images/KasaLogo.svg'
+
 function Header() {
+  const navigate = useNavigate()
   return (
     <header>
-      <h1>Header</h1>
+      <Logo />
+      <div>
+        <h2
+          onClick={() => navigate('/')}
+          className={useLocation().pathname === '/' ? 'underline' : null}
+        >
+          Accueil
+        </h2>
+        <h2
+          onClick={() => navigate('/A-Propos')}
+          className={useLocation().pathname === '/A-Propos' ? 'underline' : null}
+        >
+          A Propos
+        </h2>
+      </div>
     </header>
   )
 }

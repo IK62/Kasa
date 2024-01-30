@@ -1,17 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
 import Header from './header'
 import Footer from './footer'
 
-function App() {
+function App({ children }) {
   return (
     <div className="App">
       <Header />
-      <body>
-        <Outlet />
-      </body>
+      <main>{children ?? <Outlet />}</main>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

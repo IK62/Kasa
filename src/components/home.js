@@ -1,6 +1,12 @@
+import TopBanner from "./topBanner"
+import LocationGallery from "./locationGallery"
+
 function Home() {
     return (
-        <h1>Hello world</h1>
+        <>
+            <TopBanner title={'Chez vous, partout et ailleurs'} />
+            <LocationGallery />
+        </>
     )
 }
 
