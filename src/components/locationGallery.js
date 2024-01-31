@@ -10,7 +10,6 @@ function LocationGallery() {
         key={location.id}
         onClick={() => {
           navigate(`/Fiche-Logement/${location.id}`)
-          localStorage.setItem('location', JSON.stringify(location))
         }}
       >
         <img src={location.cover} alt={location.title} />

@@ -8,8 +8,10 @@ $paddingHeader: 100px;
 
 @mixin collapse($width, $height, $titleSize, $contentSize, $arrowSize) {
   .collapseDiv {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     position: relative;
+    width: 100%;
     max-width: $width;
     min-height: $height;
     height: min-content;
@@ -56,6 +58,7 @@ $paddingHeader: 100px;
       z-index: 1;
       padding: 0 20px 0 20px;
       transition: all linear 0.5s;
+      overflow: hidden;
 
       .collapseContent {
         margin: unset;
@@ -228,32 +231,54 @@ main {
     justify-content: center;
     position: relative;
     height: 415px;
+    width: 100%;
     overflow: hidden;
     margin-bottom: 30px;
-
+    border-radius: 10px;
+    
     .leftArrow,
     .rightArrow {
       position: absolute;
       height: 79px;
       cursor: pointer;
     }
-
+    
     .rightArrow {
       right: 23px;
     }
-
+    
     .leftArrow {
       left: 23px;
     }
-
+    
     .galleryImage {
-      min-width: 100%;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    
+    @media (max-width: 768px) {
+      height: 255px;
+      
+      .leftArrow,
+      .rightArrow {
+        height: 20px;
+      }
+
+      .rightArrow {
+        right: 6px;
+      }
+
+      .leftArrow {
+        left: 6px;
+      }
     }
   }
 
   .infoSection {
     display: flex;
     justify-content: space-between;
+    gap: 16px;
 
     .titleDiv {
       display: flex;
@@ -275,8 +300,10 @@ main {
 
       ul {
         display: flex;
+        flex-wrap: wrap;
         color: white;
         gap: 10px;
+        margin-top: 20px;
 
         li {
           display: flex;
@@ -289,7 +316,6 @@ main {
           height: 25px;
           padding: 0 30px;
           box-sizing: border-box;
-          margin-top: 20px;
         }
       }
     }
@@ -297,7 +323,7 @@ main {
     .ownerDiv {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      justify-content: space-between;
 
       .ownerInfo {
         display: flex;
@@ -326,6 +352,58 @@ main {
 
         li {
           width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+
+      .titleDiv {
+        h1 {
+          font-size: 1.125rem;
+        }
+
+        h2 {
+          font-size: 0.875rem;
+        }
+
+        ul {
+          li {
+            font-size: 0.625rem;
+            border-radius: 5px;
+          }
+        }
+      }
+      
+      .ownerDiv {
+        @media (max-width: 530px) {
+          .ownerInfo {
+            p {
+              font-size: 0.75rem;
+            }
+    
+            img {
+              width: 32px;
+              height: 32px;
+            }
+          }
+    
+          ul {
+            gap: 5px;
+    
+            li {
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+        flex-direction: row-reverse;
+
+        ul {
+          align-items: center;
         }
       }
     }
@@ -334,9 +412,22 @@ main {
   .collapseInfo {
     display: flex;
     justify-content: space-between;
+    gap: 60px;
     margin: 24px 0 50px 0;
 
-    @include collapse(582px, 52px, 1.125rem, 1.125rem, 32px);
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 20px;
+      @include collapse(auto, 30px, 0.75rem, 0.75rem, 16px);
+
+      .collapseDiv {
+        margin-inline: auto;
+      }
+    }
+
+    @media (min-width: 600px) {
+      @include collapse(582px, 52px, 1.125rem, 1.125rem, 32px);
+    }
   }
 
   .collapsePropos {
