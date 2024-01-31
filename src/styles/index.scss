@@ -79,7 +79,8 @@ $paddingHeader: 100px;
 h1,
 h2,
 ul,
-li {
+li,
+p {
   all: unset;
 }
 
@@ -147,10 +148,13 @@ main {
     background-size: cover;
     background-blend-mode: darken;
     margin-bottom: 40px;
+    box-sizing: border-box;
+    padding: 30px 15px;
 
     @media (max-width: 530px) {
       height: 110px;
       margin-bottom: 20px;
+      font-size: 1.5rem;
     }
   }
 
@@ -169,6 +173,7 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px 60px;
+    margin-bottom: 50px;
 
     li {
       all: unset;
@@ -209,6 +214,11 @@ main {
         margin: 0 20px 20px 20px;
         font-size: 1.125rem;
       }
+    }
+
+    @media (max-width: 530px) {
+      padding: unset;
+      background: unset;
     }
   }
 
@@ -345,6 +355,51 @@ main {
 
     @media (min-width: 530px) {
       @include collapse(1023px, 52px, 1.5rem, 1.125rem, 32px);
+    }
+  }
+
+  &:has(> .errorTitle) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 140px;
+    padding-block: 90px 140px;
+
+    .errorTitle {
+      font-size: 18rem;
+      color: #ff6060;
+      line-height: 264px;
+    }
+
+    .errorText {
+      font-size: 2.25rem;
+      color: #ff6060;
+      text-align: center;
+    }
+
+    .errorLink {
+      font-size: 1.125rem;
+      color: #ff6060;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      gap: 110px;
+      padding-block: 90px 110px;
+
+      .errorTitle {
+        font-size: 6rem;
+        line-height: 100px;
+      }
+
+      .errorText {
+        font-size: 1.125rem;
+      }
+
+      .errorLink {
+        font-size: 0.875rem;
+      }
     }
   }
 }
