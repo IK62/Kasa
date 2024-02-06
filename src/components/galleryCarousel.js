@@ -7,31 +7,42 @@ function GalleryCarousel({ images }) {
 
   return (
     <>
-      <img
-        onClick={
-          imageIndex === 0
-            ? () => setImageIndex(images.length - 1)
-            : () => setImageIndex(imageIndex - 1)
-        }
-        src={leftArrow}
-        alt='arrowToLeft'
-        className="leftArrow"
-      />
-      <img
-        src={images[imageIndex]}
-        alt="mainImageOfTheGallery"
-        className="galleryImage"
-      />
-      <img
-        onClick={
-          imageIndex === images.length - 1
-            ? () => setImageIndex(0)
-            : () => setImageIndex(imageIndex + 1)
-        }
-        src={rightArrow}
-        alt='arrowToRight'
-        className="rightArrow"
-      />
+      {images.length > 1 ? (
+        <>
+          <img
+            onClick={
+              imageIndex === 0
+                ? () => setImageIndex(images.length - 1)
+                : () => setImageIndex(imageIndex - 1)
+            }
+            src={leftArrow}
+            alt="arrowToLeft"
+            className="leftArrow"
+          />
+          <img
+            src={images[imageIndex]}
+            alt="mainImageOfTheGallery"
+            className="galleryImage"
+          />
+          <p className="imageIndex">{`${imageIndex + 1}/${images.length}`}</p>
+          <img
+            onClick={
+              imageIndex === images.length - 1
+                ? () => setImageIndex(0)
+                : () => setImageIndex(imageIndex + 1)
+            }
+            src={rightArrow}
+            alt="arrowToRight"
+            className="rightArrow"
+          />
+        </>
+      ) : (
+        <img
+          src={images[imageIndex]}
+          alt="mainImageOfTheGallery"
+          className="galleryImage"
+        />
+      )}
     </>
   )
 }

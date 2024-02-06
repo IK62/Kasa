@@ -250,6 +250,13 @@ main {
     .leftArrow {
       left: 23px;
     }
+
+    .imageIndex {
+      position: absolute;
+      bottom: 25px;
+      color: white;
+      font-size: 1.125rem;
+    }
     
     .galleryImage {
       object-fit: cover;
@@ -271,6 +278,10 @@ main {
 
       .leftArrow {
         left: 6px;
+      }
+
+      .imageIndex {
+        display: none;
       }
     }
   }
