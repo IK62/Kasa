@@ -1,9 +1,9 @@
-import App from './App'
+import App from '../../pages/mainLayout/App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './home'
-import Logement from './logement'
-import Propos from './propos'
-import ErrorPage from './errorPage'
+import Home from '../../pages/home'
+import Logement from '../../pages/logement'
+import Propos from '../../pages/propos'
+import ErrorPage from '../../pages/errorPage'
 
 const browserRouter = createBrowserRouter([
   {

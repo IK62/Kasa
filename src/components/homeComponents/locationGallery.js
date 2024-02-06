@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import data from '../data.json'
+import data from '../../data.json'
 
 function LocationGallery() {
   const navigate = useNavigate()

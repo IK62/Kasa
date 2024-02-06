@@ -1,5 +1,5 @@
-import Collapse from './collapse'
-import TopBanner from './topBanner'
+import Collapse from '../components/mainComponents/collapse'
+import TopBanner from '../components/mainComponents/topBanner'
 
 function Propos() {
   return (

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ReactComponent as ArrowTop } from '../images/chevron-up-solid.svg'
+import { ReactComponent as ArrowTop } from '../../images/chevron-up-solid.svg'
 
 function Collapse({ title, content }) {
   const  [isOpen, setIsOpen] = useState(false)

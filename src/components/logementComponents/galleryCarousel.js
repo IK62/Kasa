@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import leftArrow from '../images/chevron-left-solid.svg'
-import rightArrow from '../images/chevron-right-solid.svg'
+import leftArrow from '../../images/chevron-left-solid.svg'
+import rightArrow from '../../images/chevron-right-solid.svg'
 
 function GalleryCarousel({ images }) {
   const [imageIndex, setImageIndex] = useState(0)

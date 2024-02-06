@@ -1,5 +1,5 @@
-import { ReactComponent as StarActivated } from '../images/star-red.svg'
-import { ReactComponent as StarDeactivated } from '../images/star-grey.svg'
+import { ReactComponent as StarActivated } from '../../images/star-red.svg'
+import { ReactComponent as StarDeactivated } from '../../images/star-grey.svg'
 
 function RatingStars({ rating }) {
   const ratingList = []

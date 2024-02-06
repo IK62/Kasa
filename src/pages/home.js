@@ -1,5 +1,5 @@
-import TopBanner from "./topBanner"
-import LocationGallery from "./locationGallery"
+import TopBanner from "../components/mainComponents/topBanner"
+import LocationGallery from "../components/homeComponents/locationGallery"
 
 function Home() {
     return (

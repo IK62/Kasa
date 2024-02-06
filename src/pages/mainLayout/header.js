@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { ReactComponent as Logo } from '../images/KasaLogo.svg'
+import { ReactComponent as Logo } from '../../images/KasaLogo.svg'
 
 function Header() {
   const navigate = useNavigate()
