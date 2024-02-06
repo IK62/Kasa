@@ -14,6 +14,7 @@ function GalleryCarousel({ images }) {
             : () => setImageIndex(imageIndex - 1)
         }
         src={leftArrow}
+        alt='arrowToLeft'
         className="leftArrow"
       />
       <img
@@ -28,6 +29,7 @@ function GalleryCarousel({ images }) {
             : () => setImageIndex(imageIndex + 1)
         }
         src={rightArrow}
+        alt='arrowToRight'
         className="rightArrow"
       />
     </>

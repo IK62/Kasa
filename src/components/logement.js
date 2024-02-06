@@ -2,19 +2,24 @@ import Collapse from './collapse'
 import GalleryCarousel from './galleryCarousel'
 import RatingStars from './ratingStars'
 import TagsList from './tagsList'
+import ErrorPage from './errorPage'
 import data from '../data.json'
 import { useParams } from 'react-router-dom'
 
 function Logement() {
   const params = useParams()
-  
-  let location = {}
+
+  let location
 
   for (let i = 0; i < data.length; i++) {
-    const element = data[i];
+    const element = data[i]
     if (element.id === params.id) {
       location = element
     }
+  }
+
+  if (!location) {
+    return <ErrorPage />
   }
 
   const {
@@ -27,7 +32,6 @@ function Logement() {
     tags,
     title: titre,
   } = location
-
 
   return (
     <>
@@ -43,7 +47,7 @@ function Logement() {
         <div className="ownerDiv">
           <div className="ownerInfo">
             <p>{nom}</p>
-            <img src={image} alt='imageDuProprietaire'/>
+            <img src={image} alt="imageDuProprietaire" />
           </div>
           <RatingStars rating={note} />
         </div>

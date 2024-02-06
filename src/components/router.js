@@ -20,6 +20,10 @@ const browserRouter = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '*',
+        element: <ErrorPage />,
+      },
+      {
         path: 'Fiche-Logement/:id',
         element: <Logement />,
       },
